@@ -7,6 +7,8 @@
     * [Historia](#historia)
     * [Definición](#ansible-plataforma-de-automatización)
 * [¿Cómo Funciona?](#¿cómo-funciona?)
+* [Alternativas](#alternativas)
+* [Demo](#demo)
 
 ## Introducción
 
@@ -57,8 +59,23 @@ inactividad
 
 ## ¿Cómo funciona?
 
+## Alternativas
+
+| **Tool**                             | **Ansible**                                                                                                  | **Terraform**                                                                                                          | **Puppet**                                                                                                          | **Chef**                                                                         | **Saltstack**                                                                 |
+|:------------------------------------:|:-----------------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------:|:--------------------------------------------------------------------:|
+| **Supported resources**              | Configuration Management, Orchestration and Provisioning                                              | Provisioning                                                                                                  | Configuration Management                                                                                      | Configuration Management, Orchestration                                      | Configuration Management, Vulnerability Compliance,                  |
+| **Desired State**                    | Idempotency                                                                                           | Convergence                                                                                                   | Convergence                                                                                                   | Convergence                                                                  | Idempotency                                                          |
+| **Infrastructure**                   | Mutable                                                                                               | Immutable                                                                                                     | Mutable                                                                                                       | Mutable                                                                      | Mutable                                                              |
+| **Syntax**                           | Declarative                                                                                           | Declarative                                                                                                   | Declarative                                                                                                   | Declarative / Imperative                                                     | Declarative / Imperative                                             |
+| **Approach control**                 | Serveless and Agentless                                                                               | Serveless and Agentless                                                                                       | Server and Agent                                                                                              | Server and Agent                                                             | Server and Minion \(Agent\)                                          |
+| **Configuration Language**           | ✓✓✓✓                                                                                                  | ✓✓✓✓                                                                                                          | ✓✓✓                                                                                                           | ✓✓✓                                                                          | ✓✓✓✓                                                                 |
+| **Community and Cost Support**       | ✓✓✓✓                                                                                                  | ✓✓✓✓                                                                                                          | ✓✓✓✓                                                                                                          | ✓✓✓✓                                                                         | ✓✓✓                                                                  |
+| **Maturity and Learning Curve**      | ✓✓✓✓                                                                                                  | ✓✓✓✓                                                                                                          | ✓✓✓✓                                                                                                          | ✓✓✓✓                                                                         | ✓✓✓                                                                  |
+| **Can it be used with other tools?** | ✓✓✓✓                                                                                                  | ✓✓✓✓                                                                                                          | ✓✓✓✓                                                                                                          | ✓✓✓                                                                          | ✓✓✓✓                                                                 |
+| **Best for**                         | The best tool for those beginning with Infrastructure\-as\-code managing heterogeneous environments\. | To simplify the management of environments in the public and private clouds, multi\-cloud and hybrid clouds\. | To orchestrate environments that have rigid compliance requirements, maintaining an immutable configuration\. | Continuous Automation on complex topologies or deployments that need speed\. | To orchestrate and to automate IT tasks with speed and flexibility\. |
+| **RATING SCORE**                     | 4\.83                                                                                                 | 4\.50                                                                                                         | 4\.17                                                                                                         | 3\.67                                                                        | 3\.67                                                                |
+
+
 ## Demo
 
-### Instalación
-
-En Ubuntu
+Toda la información de la demo está en el [guión](#Guion.md).
