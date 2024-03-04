@@ -59,6 +59,16 @@ inactividad
 
 ## ¿Cómo funciona?
 
+* Fichero host: donde se indica la maquina a provisionar. Nombre en ssh.  
+* Maquina remota, máquina docker, propia máquina.  
+* Playbook: Instalar una serie de paquetes. (.yml) sin opciones lastest. Reglas. Eliminar paquete: state absent.  
+* Definir cosas de la máquina: saltstack: pillars, puppet: factor.  
+* motd file: etc/motd (mensaje cuando la inicias)  
+
+```
+ansible-playbook -i host playbook
+```
+
 ## Alternativas
 
 | **Tool**                             | **Ansible**                                                                                                  | **Terraform**                                                                                                          | **Puppet**                                                                                                          | **Chef**                                                                         | **Saltstack**                                                                 |
@@ -73,7 +83,7 @@ inactividad
 | **Maturity and Learning Curve**      | ✓✓✓✓                                                                                                  | ✓✓✓✓                                                                                                          | ✓✓✓✓                                                                                                          | ✓✓✓✓                                                                         | ✓✓✓                                                                  |
 | **Can it be used with other tools?** | ✓✓✓✓                                                                                                  | ✓✓✓✓                                                                                                          | ✓✓✓✓                                                                                                          | ✓✓✓                                                                          | ✓✓✓✓                                                                 |
 | **Best for**                         | The best tool for those beginning with Infrastructure\-as\-code managing heterogeneous environments\. | To simplify the management of environments in the public and private clouds, multi\-cloud and hybrid clouds\. | To orchestrate environments that have rigid compliance requirements, maintaining an immutable configuration\. | Continuous Automation on complex topologies or deployments that need speed\. | To orchestrate and to automate IT tasks with speed and flexibility\. |
-| **RATING SCORE**                     | 4\.83                                                                                                 | 4\.50                                                                                                         | 4\.17                                                                                                         | 3\.67                                                                        | 3\.67                                                                |
+
 
 
 ## Demo
