@@ -1,0 +1,43 @@
+---
+- name: Configurar perfil por defecto (para ofimática)
+  hosts: perfil_por_defecto
+  tasks:
+    - name: Instalar paquetes de ofimática
+      apt:
+        name:
+          - libreoffice
+          - gimp
+        state: present
+
+    - name: Crear grupo "office" si no existe
+      group:
+        name: office
+        state: present
+    - name: Agregar usuario al grupo "office"
+      user:
+        name: usuario_oficinista
+        groups: office
+        append: yes
+
+
+- name: Configurar perfil alternativo (para desarrolladores)
+  hosts: perfil_alternativo
+  tasks:
+    - name: Instalar paquetes para desarrollo
+      apt:
+        name:
+          - git
+          - python3
+          - build-essential
+        state: present
+
+    - name: Crear grupo "developers" si no existe
+      group:
+        name: developers
+        state: present
+
+    - name: Agregar usuario al grupo "developers"
+      user:
+        name: usuario_desarrollador
+        groups: developers
+        append: yes
