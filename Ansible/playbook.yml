@@ -18,6 +18,13 @@
         name: usuario_oficinista
         groups: office
         append: yes
+    - name: Crear directorio de documentos compartidos
+      file:
+        path: /home/usuario_oficinista/documentos_compartidos
+        state: directory
+        owner: usuario_oficinista
+        group: office
+        mode: '0775'
 
 
 - name: Configurar perfil alternativo (para desarrolladores)
@@ -29,6 +36,7 @@
           - git
           - python3
           - build-essential
+          - code
         state: present
 
     - name: Crear grupo "developers" si no existe
@@ -41,3 +49,13 @@
         name: usuario_desarrollador
         groups: developers
         append: yes
+    - name: Clonar repositorio de código fuente
+      git:
+        repo: https://github.com/UCLM-ESI/upper
+        dest: /home/usuario_desarrollador/proyecto
+        clone: yes
+        update: no
+        force: yes
+        owner: usuario_desarrollador
+        group: developers
+---
