@@ -59,11 +59,52 @@ inactividad
 
 ## ¿Cómo funciona?
 
-* Fichero host: donde se indica la maquina a provisionar. Nombre en ssh.  
-* Maquina remota, máquina docker, propia máquina.  
-* Playbook: Instalar una serie de paquetes. (.yml) sin opciones lastest. Reglas. Eliminar paquete: state absent.  
-* Definir cosas de la máquina: saltstack: pillars, puppet: factor.  
-* motd file: etc/motd (mensaje cuando la inicias)  
+![Timeline](Images/ansible_inv_start.svg)
+
+Como se muestra en la figura, la mayorıa de los entornos Ansible tienen tres componentes principales:
+
+* **Nodo de control**: Un **sistema** en el que está **instalado Ansible**. Los comandos de Ansible se ejecutan en este nodo.
+* **Inventario**: Una **lista de nodos administrados** que están organizados lógicamente. Se crea un inventario en el nodo de control para describir las implementaciones de host en Ansible.
+* **Nodo administrado**: Un **sistema remoto**, o **host**, que controla Ansible.
+
+### Playbooks:
+
+Son los **scripts de automatización** para los nodos administrados. Utilizan sintáxis **YAML**.
+
+Ejemplo:
+
+```yml
+---
+- name: Update web servers
+  hosts: webservers
+  remote_user: root
+
+  tasks:
+  - name: Ensure apache is at the latest version
+    ansible.builtin.yum:
+      name: httpd
+      state: latest
+
+  - name: Write the apache config file
+    ansible.builtin.template:
+      src: /srv/httpd.j2
+      dest: /etc/httpd.conf
+
+- name: Update db servers
+  hosts: databases
+  remote_user: root
+
+  tasks:
+  - name: Ensure postgresql is at the latest version
+    ansible.builtin.yum:
+      name: postgresql
+      state: latest
+
+  - name: Ensure that postgresql is started
+    ansible.builtin.service:
+      name: postgresql
+      state: started
+```
 
 ```
 ansible-playbook -i host playbook
