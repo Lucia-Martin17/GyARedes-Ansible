@@ -24,8 +24,6 @@
         update_cache: yes
 
     - name: Instalar paquetes de ofimática
-      become_user: usuario_oficinista
-      become: yes
       apt:
         name:
           - libreoffice
@@ -66,20 +64,14 @@
       apt:
         update_cache: yes
 
-    - name: Agregar clave GPG para el repositorio de Visual Studio Code
-      apt_key:
-        url: https://packages.microsoft.com/keys/microsoft.asc
-        state: present
-
     - name: Instalar paquetes para desarrollo
-      become_user: usuario_desarrollador
       become: yes
       apt:
         name:
           - git
           - python3
           - build-essential
-          - code
+          - neovim
         state: present
 
     - name: Clonar repositorio de código fuente
