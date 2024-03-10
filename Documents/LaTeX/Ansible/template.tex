@@ -317,22 +317,35 @@
 \end{frame}
 
 %------------------------------------------------
-
 \section{¿Cómo funciona?}
 
 \begin{frame}
-	\frametitle{Blocks of Highlighted Text}
+	\frametitle{¿Cómo funciona Ansible? (I)}
 	
-	\begin{block}{Block Title}
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ultricies in feugiat rutrum, porttitor sit amet augue.
+	\begin{figure}
+		\includegraphics[width=0.65\linewidth]{ansible_inv_start.pdf}
+            \caption{Funcionamiento de Ansible}
+	\end{figure}
+	
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+	\frametitle{¿Cómo funciona Ansible? (II)}
+
+	Como se muestra en la figura anterior, la mayoría de los entornos Ansible tienen tres componentes principales:
+	
+	\begin{block}{\textbf{Nodo de control}}
+		Un \textbf{sistema} en el que está \textbf{instalado Ansible}. Los comandos de Ansible se ejecutan en este nodo.
 	\end{block}
 	
-	\begin{exampleblock}{Example Block Title}
-		Aliquam ut tortor mauris. Sed volutpat ante purus, quis accumsan.
+	\begin{exampleblock}{\textbf{Inventario}}
+		Una \textbf{lista de nodos} administrados que están organizados lógicamente. Se crea un inventario en el nodo de control para describir las implementaciones de host en Ansible.
 	\end{exampleblock}
 	
-	\begin{alertblock}{Alert Block Title}
-		Pellentesque sed tellus purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+	\begin{alertblock}{\textbf{Nodo administrado}}
+		Un \textbf{sistema remoto}, o \textbf{host}, que controla Ansible.
 	\end{alertblock}
 
 \end{frame}
@@ -341,19 +354,18 @@
 
 \begin{frame}
 	\frametitle{Multiple Columns}
-	\framesubtitle{Subtitle} % Optional subtitle
 	
-	\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
-		\begin{column}{0.45\textwidth} % Left column width
-			\textbf{Heading}
-			\begin{enumerate}
-				\item Statement
-				\item Explanation
-				\item Example
-			\end{enumerate}
+	\begin{columns}[c]
+		\begin{column}{0.45\textwidth}
+			\textbf{Playbooks}
+			\begin{itemize}
+				\item Son los \textbf{scripts de automatización} para los nodos administrados.
+				\item Utilizan sintáxis \textbf{YAML}.
+			\end{itemize}
 		\end{column}
-		\begin{column}{0.5\textwidth} % Right column width
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ultricies in feugiat rutrum, porttitor sit amet augue. Aliquam ut tortor mauris. Sed volutpat ante purus, quis accumsan dolor.
+		\begin{column}{0.5\textwidth}
+			Ejecución:\\
+			
 		\end{column}
 	\end{columns}
 \end{frame}
