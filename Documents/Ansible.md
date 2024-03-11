@@ -129,4 +129,4 @@ ansible-playbook -i host playbook
 
 ## Demo
 
-Toda la información de la demo está en el [guión](#Guion.md).
+Toda la información de la demo está en el [guión](Guion.md).
