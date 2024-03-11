@@ -78,4 +78,4 @@ La opción `-i` es para indicar el archivo de inventario, puedes cambiar el inve
 |`ansible_ssh_user`|`usuario-1`|Nombre del nodo administrado|
 |`ansible_ssh_pass`|`usuario-1`|Contraseña para poder conectarse mediante *ssh*|
 |`<inventory>`|`hosts.ini`|Inventario|
-|`<playbook>`|`playbook.ini`|Script de automatización|
+|`<playbook>`|`playbook.yml`|Script de automatización|
