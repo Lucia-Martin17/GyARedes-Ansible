@@ -21,3 +21,9 @@ Presentación:
 Guión demo:
 
 `Documents/Guion.md`
+
+## Eventos:
+
+|**Evento**                   |**Información del evento**|
+|:---------------------------:|:------------------------:|
+|Finaliza un aprovisionamiento|IP del nodo aprovisionado |
