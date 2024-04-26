@@ -28,7 +28,7 @@ Abrir puerto:
 
 ### Nodo de control
 
-Al tener Windows 11 instalado en mi diso duro, utilizaré una máquina virtual de Ubuntu 22.04.1 configurada de la siguiente manera:
+Al tener Windows 11 instalado en mi disco duro, utilizaré una máquina virtual de Ubuntu 22.04.1 configurada de la siguiente manera:
 
 * Procesadores: 1 vCPU
 * Memoria base: 2048 MB
