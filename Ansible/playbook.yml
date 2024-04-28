@@ -45,8 +45,8 @@
     handlers:
     - name: notificar por Telegram
       telegram:
-        token: "7035477760:AAHSrKrG5YGj0cUTwNfxeBa47e1PWlnUHko"
-        chat_id: "1003641512"
+        token: "###"
+        chat_id: "###"
         msg: "Aprovisionamiento finalizado. IP del nodo aprovisionado: {{ info_del_nodo.stdout }}"
       when: info_del_nodo.stdout is defined and info_del_nodo.stdout != ""
 
