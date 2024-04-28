@@ -41,12 +41,14 @@
     - name: Obtener información del nodo aprovisionado
       shell: "ip addr | grep 'inet ' | grep -v '127.0.0.1' | awk '{print $2}'"
       register: info_del_nodo
-
-    - debug:
-        msg: "La dirección IP del nodo aprovisionado es {{ info_del_nodo.stdout }}"
     
-    - name: Enviar información por correo electrónico
-      command: "echo 'El nodo se ha aprovisionado correctamente. IP: {{ info_del_nodo.stdout }}' | mail -s 'Finalización de aprovisionamiento' luciasonicsfj@gmail.com"
+    handlers:
+    - name: notificar por Telegram
+      telegram:
+        token: "7035477760:AAHSrKrG5YGj0cUTwNfxeBa47e1PWlnUHko"
+        chat_id: "1003641512"
+        msg: "Aprovisionamiento finalizado. IP del nodo aprovisionado: {{ info_del_nodo.stdout }}"
+      when: info_del_nodo.stdout is defined and info_del_nodo.stdout != ""
 
 ################################################################
 
