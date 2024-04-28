@@ -38,6 +38,16 @@
         group: office
         mode: "0775"
 
+    - name: Obtener información del nodo aprovisionado
+      shell: "ip addr | grep 'inet ' | grep -v '127.0.0.1' | awk '{print $2}'"
+      register: info_del_nodo
+
+    - debug:
+        msg: "La dirección IP del nodo aprovisionado es {{ info_del_nodo.stdout }}"
+    
+    - name: Enviar información por correo electrónico
+      command: "echo 'El nodo se ha aprovisionado correctamente. IP: {{ info_del_nodo.stdout }}' | mail -s 'Finalización de aprovisionamiento' luciasonicsfj@gmail.com"
+
 ################################################################
 
 - name: Configurar perfil alternativo (para desarrolladores)
