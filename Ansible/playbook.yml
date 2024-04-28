@@ -42,12 +42,11 @@
       shell: "ip addr | grep 'inet ' | grep -v '127.0.0.1' | awk '{print $2}'"
       register: info_del_nodo
     
-    handlers:
     - name: notificar por Telegram
       telegram:
         token: "###"
         chat_id: "###"
-        msg: "Aprovisionamiento finalizado. IP del nodo aprovisionado: {{ info_del_nodo.stdout }}"
+        msg: "Aprovisionamiento oficinista finalizado. IP del nodo aprovisionado: {{ info_del_nodo.stdout }}"
       when: info_del_nodo.stdout is defined and info_del_nodo.stdout != ""
 
 ################################################################
@@ -101,3 +100,14 @@
         group: developers
         state: directory
         recurse: yes
+    
+    - name: Obtener información del nodo aprovisionado
+      shell: "ip addr | grep 'inet ' | grep -v '127.0.0.1' | awk '{print $2}'"
+      register: info_del_nodo
+    
+    - name: notificar por Telegram
+      telegram:
+        token: "###"
+        chat_id: "###"
+        msg: "Aprovisionamiento developer finalizado. IP del nodo aprovisionado: {{ info_del_nodo.stdout }}"
+      when: info_del_nodo.stdout is defined and info_del_nodo.stdout != ""
