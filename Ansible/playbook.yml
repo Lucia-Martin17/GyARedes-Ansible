@@ -101,5 +101,5 @@
       telegram:
         token: "###"
         chat_id: "###"
-        msg: "Aprovisionamiento oficinista finalizado. IP del nodo aprovisionado: {{ ansible_host }}"
+        msg: "Aprovisionamiento desarrollador finalizado. IP del nodo aprovisionado: {{ ansible_host }}"
       when: ansible_host is defined and ansible_host != ""
