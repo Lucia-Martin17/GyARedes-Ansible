@@ -37,19 +37,15 @@
         owner: usuario_oficinista
         group: office
         mode: "0775"
-
-    - name: Obtener información del nodo aprovisionado
-      shell: "ip addr | grep 'inet ' | grep -v '127.0.0.1' | awk '{print $2}'"
-      register: info_del_nodo
     
     - name: notificar por Telegram
       telegram:
         token: "###"
         chat_id: "###"
-        msg: "Aprovisionamiento oficinista finalizado. IP del nodo aprovisionado: {{ info_del_nodo.stdout }}"
-      when: info_del_nodo.stdout is defined and info_del_nodo.stdout != ""
+        msg: "Aprovisionamiento oficinista finalizado. IP del nodo aprovisionado: {{ ansible_host }}"
+      when: ansible_host is defined and ansible_host != ""
 
-################################################################
+#######################################################################################################
 
 - name: Configurar perfil alternativo (para desarrolladores)
   hosts: perfil_alternativo
@@ -101,13 +97,9 @@
         state: directory
         recurse: yes
     
-    - name: Obtener información del nodo aprovisionado
-      shell: "ip addr | grep 'inet ' | grep -v '127.0.0.1' | awk '{print $2}'"
-      register: info_del_nodo
-    
     - name: notificar por Telegram
       telegram:
         token: "###"
         chat_id: "###"
-        msg: "Aprovisionamiento developer finalizado. IP del nodo aprovisionado: {{ info_del_nodo.stdout }}"
-      when: info_del_nodo.stdout is defined and info_del_nodo.stdout != ""
+        msg: "Aprovisionamiento oficinista finalizado. IP del nodo aprovisionado: {{ ansible_host }}"
+      when: ansible_host is defined and ansible_host != ""
