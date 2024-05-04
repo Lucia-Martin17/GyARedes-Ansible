@@ -27,3 +27,14 @@ Guión demo:
 |**Evento**                   |**Información del evento**|
 |:---------------------------:|:------------------------:|
 |Finaliza un aprovisionamiento|IP del nodo aprovisionado |
+
+Se añade lo siguiente para recibir una notificación de un bot de Telegram:
+
+```yaml
+- name: notificar por Telegram
+      telegram:
+        token: "token_del_bot"
+        chat_id: "id_chat_del_bot"
+        msg: "Aprovisionamiento oficinista finalizado. IP del nodo aprovisionado: {{ ansible_host }}"
+      when: ansible_host is defined and ansible_host != ""
+```
