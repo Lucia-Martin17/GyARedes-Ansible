@@ -28,12 +28,22 @@ Abrir puerto:
 
 ### Nodo de control
 
-Al tener Windows 11 instalado en mi diso duro, utilizaré una máquina virtual de Ubuntu 22.04.1 configurada de la siguiente manera:
+Al tener Windows 11 instalado en mi disco duro, utilizaré una máquina virtual de Ubuntu 22.04.1 configurada de la siguiente manera:
 
 * Procesadores: 1 vCPU
 * Memoria base: 2048 MB
 * Almacenamiento: 25,00 GB
 * Interfaces de red: NAT y sólo anfitrión
+
+### Conexión ssh
+
+En este nodo también hay que tener instalado `ssh` para poder hacer la conexión remota, además para poder autenticarnos remotamente necesitamos este paquete:
+
+`sshpass - Non-interactive ssh password authentication`
+
+Instalación:
+
+`sudo apt-get install sshpass`
 
 ### Instalación de Ansible en el nodo de control
 
@@ -79,3 +89,15 @@ La opción `-i` es para indicar el archivo de inventario, puedes cambiar el inve
 |`ansible_ssh_pass`|`usuario-1`|Contraseña para poder conectarse mediante *ssh*|
 |`<inventory>`|`hosts.ini`|Inventario|
 |`<playbook>`|`playbook.yml`|Script de automatización|
+
+## Crear bot de Telegram:
+
+1. Buscar el chat de BotFather de Telegram
+2. Enviarle `\start`
+3. Seguir las instrucciones:
+    * `\newbot`
+    * `nombre_del_bot`
+    * `nombre_usuario_del_bot`
+    * Recibiras un token
+4. Mandar `/start` a tu bot para iniciarlo
+5. Para obtener el `chat_id` mandar mensaje a tu bot y acceder a [https://api.telegram.org/bot<token\>/getUpdates]()

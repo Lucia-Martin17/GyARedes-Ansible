@@ -46,7 +46,7 @@
 #### Casos de Uso
 Con Ansible puedes:
 * Eliminar la repetición y simplificar los flujos de trabajo
-* Administrar y mantiener la configuración del sistema
+* Administrar y mantener la configuración del sistema
 * Implementar continuamente software complejo
 * Realizar actualizaciones continuas sin tiempo de
 inactividad
@@ -61,7 +61,7 @@ inactividad
 
 ![Timeline](Images/ansible_inv_start.svg)
 
-Como se muestra en la figura, la mayorıa de los entornos Ansible tienen tres componentes principales:
+Como se muestra en la figura, la mayoría de los entornos Ansible tienen tres componentes principales:
 
 * **Nodo de control**: Un **sistema** en el que está **instalado Ansible**. Los comandos de Ansible se ejecutan en este nodo.
 * **Inventario**: Una **lista de nodos administrados** que están organizados lógicamente. Se crea un inventario en el nodo de control para describir las implementaciones de host en Ansible.

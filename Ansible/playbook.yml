@@ -37,8 +37,15 @@
         owner: usuario_oficinista
         group: office
         mode: "0775"
+    
+    - name: notificar por Telegram
+      telegram:
+        token: "token_del_bot"
+        chat_id: "id_del_chat"
+        msg: "Aprovisionamiento oficinista finalizado. IP del nodo aprovisionado: {{ ansible_host }}"
+      when: ansible_host is defined and ansible_host != ""
 
-################################################################
+#######################################################################################################
 
 - name: Configurar perfil alternativo (para desarrolladores)
   hosts: perfil_alternativo
@@ -89,3 +96,10 @@
         group: developers
         state: directory
         recurse: yes
+    
+    - name: notificar por Telegram
+      telegram:
+        token: "token_del_bot"
+        chat_id: "id_del_chat"
+        msg: "Aprovisionamiento desarrollador finalizado. IP del nodo aprovisionado: {{ ansible_host }}"
+      when: ansible_host is defined and ansible_host != ""
